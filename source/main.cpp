@@ -5,6 +5,8 @@
 
 #include "HttpClient.h"
 #include "HttpResponse.h"
+#include "Hue/Hue.h"
+
 
 int main(int argc, char **argv)
 {
@@ -15,11 +17,11 @@ int main(int argc, char **argv)
 	nxlinkStdio();
   	printf("printf output now goes to nxlink server\n");
 
-	HttpClient* client = new HttpClient();
-	HttpResponse* response = client->put("http://jsonplaceholder.typicode.com/posts/42", (char*)"{ \"FOO\": \"BAAZZZZ\" }");
+	Hue* hue = new Hue();
+	hue->setUser("");
+	hue->setIp("192.168.1.204");
 
-	printf(response->data.c_str());
-	printf("\n");
+	hue->setGroupOnState(groups->at(0).id, false);
 
 	// Main loop
 	while(appletMainLoop())
