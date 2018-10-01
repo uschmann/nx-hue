@@ -24,5 +24,8 @@ class View
         virtual bool onEvent(SDL_Event* event);
     
     protected:
-        SDL_Rect mRect;
+        int mX;
+        int mY;
+        int mWidth;
+        int mHeight;
 };

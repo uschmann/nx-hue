@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Controller/Controller.h"
+#include "View/ToggleButton.h"
 
 class GroupController: public Controller {
     public:
@@ -9,4 +10,6 @@ class GroupController: public Controller {
         void onDraw(SDL_Renderer* renderer);
         void onFrame(int deltaTime);
         void onRemove();
+    protected:
+        ToggleButton* mView;
 };

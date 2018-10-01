@@ -1,3 +1,5 @@
+#pragma once 
+
 const int EVENT_TAP = -1;
 
 typedef struct TapEvent {

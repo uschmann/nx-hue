@@ -82,6 +82,7 @@ void App::run() {
 
     while (this->isRunning)
 	{	
+        SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
         int currentTick = SDL_GetTicks();
         int deltaTime = currentTick - mLastTick;
         mLastTick = currentTick;

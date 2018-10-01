@@ -1,60 +1,64 @@
 #include "View/View.h"
+#include <stdio.h>
 
 View::View(int x, int y, int width, int height) 
 {
-    mRect = { x, y, width, height };
+    mX = x;
+    mY = y;
+    mWidth = width;
+    mHeight = height;
 }
 
 void View::setX(int x) 
 {
-    mRect.x = x;
+    mX = x;
 }
 
 void View::setY(int y) 
 {
-    mRect.y = y;
+    mY = y;
 }
 
 void View::setWidth(int width)
 {
-    mRect.w = width;
+    mWidth = width;
 }
 
 void View::setHeight(int height)
 {
-    mRect.h = height;
+    mHeight = height;
 }
 
 int View::getX()
 {
-    return mRect.x;
+    return mX;
 }
 
 int View::getY()
 {
-    return mRect.y;
+    return mY;
 }
 
 int View::getWidth()
 {
-    return mRect.w;
+    return mWidth;
 }
 
 int View::getHeight()
 {
-    return mRect.h;
+    return mHeight;
 }
 
 bool View::isTapped(TapEvent* event)
 {
-    return event->x >= mRect.x && event->x <= mRect.x + mRect.h && 
-    event->y >= mRect.y && event->y <= mRect.y + mRect.h;
+    printf("x: %d, y: %d, w: %d, h: %d\n", mX, mY, mWidth, mHeight);
+    return event->x >= mX && event->x <= mX + mWidth && 
+    event->y >= mY && event->y <= mY + mHeight;
 }
 
 void View::onDraw(SDL_Renderer* renderer) 
 {
-    SDL_SetRenderDrawColor(renderer, 0x00, 0xff, 0x00, 0xff);
-    SDL_RenderFillRect(renderer, &mRect);
+    
 }
 
 void View::onFrame(int deltaTime)
