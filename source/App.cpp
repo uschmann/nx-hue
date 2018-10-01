@@ -64,6 +64,8 @@ bool App::init() {
     return false;
   }
 
+  this->assetManager->load();
+
   printf("Init success\n");
 
   return true;

@@ -32,9 +32,9 @@ include $(DEVKITPRO)/libnx/switch_rules
 #---------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
-SOURCES		:=	source source/Hue source/Controller
+SOURCES		:=	source source/Hue source/Controller source/View
 DATA		:=	data
-INCLUDES	:=	include include/Hue include/Controller
+INCLUDES	:=	include include/Hue include/Controller include/View
 EXEFS_SRC	:=	exefs_src
 ROMFS	:=	romfs
 APP_AUTHOR := Usch
