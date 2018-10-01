@@ -6,6 +6,7 @@
 
 #include "App.h"
 #include "Controller/Controller.h"
+#include "Event.h"
 
 #define DEBUG
 
@@ -90,19 +91,17 @@ void App::run() {
                 case SDL_FINGERDOWN:
                     this->lastMouseDown = SDL_GetTicks();
                     break;
-                case SDL_MOUSEBUTTONUP:
-                    if((SDL_GetTicks() - this->lastMouseDown) < 150) {
-                        /*
-                        SDL_MouseButtonEvent mouseEvent;
-                        mouseEvent.x = event.button.x;
-                        mouseEvent.y = event.button.y;
+                case SDL_FINGERUP:
+                    if((SDL_GetTicks() - this->lastMouseDown) < 200) {
+                        TapEvent tapEvent;
+                        tapEvent.x = ((int)(event.tfinger.x * 1280));
+                        tapEvent.y = ((int)(event.tfinger.y * 720));
 
                         SDL_Event event;
                         event.type = SDL_USEREVENT;
-                        event.user.code = -999; // TODO use constant
-                        event.user.data1 = &mouseEvent;;
+                        event.user.code = EVENT_TAP; // TODO use constant
+                        event.user.data1 = &tapEvent;
                         SDL_PushEvent(&event);
-                        */
                     }
                     break;
                 case SDL_JOYBUTTONDOWN:
@@ -121,7 +120,7 @@ void App::run() {
                 this->controller->onEvent(&event);
             }
         }
-
+        
         if(this->controller != NULL) {
             this->controller->onFrame(deltaTime);
         }
