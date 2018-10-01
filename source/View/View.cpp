@@ -51,7 +51,6 @@ int View::getHeight()
 
 bool View::isTapped(TapEvent* event)
 {
-    printf("x: %d, y: %d, w: %d, h: %d\n", mX, mY, mWidth, mHeight);
     return event->x >= mX && event->x <= mX + mWidth && 
     event->y >= mY && event->y <= mY + mHeight;
 }

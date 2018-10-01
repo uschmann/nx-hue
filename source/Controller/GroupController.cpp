@@ -4,18 +4,15 @@
 
 void GroupController::onCreate(App *app) {
     this->app = app;
-    mView = new ToggleButton(40, 40);
+    
+
+    mGroups = this->app->hue->getGroups();
+    
+    mView = new GroupItem(&mGroups->at(0), 40, 40);
 }
 
 bool GroupController::onEvent(SDL_Event * event) {
-    if(event->type == SDL_USEREVENT) {
-        TapEvent* e = (TapEvent*)event->user.data1;
-        printf("tap\n");
-        if(mView->isTapped(e)) {
-            mView->setState(!mView->getState());
-            printf("TAPPP! X: %d, Y: %d\n", e->x, e->y);
-        }
-    }
+    mView->onEvent(event);
     return false;
 }
 

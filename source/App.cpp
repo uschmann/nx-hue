@@ -15,6 +15,10 @@ App *App::INSTANCE = 0;
 App::App() {
     this->isRunning = false;
     this->hue = new Hue();
+
+    this->hue->setUser("jOUGx3IWt1qns7ck5p93fsJM0Ao5qiwYpW1AgwVn");
+    this->hue->setIp("192.168.1.204");
+
     this->assetManager = new AssetManager();
     this->controller = NULL;
     mLastTick = 0;

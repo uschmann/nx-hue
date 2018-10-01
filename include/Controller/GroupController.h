@@ -1,7 +1,9 @@
 #pragma once
 
 #include "Controller/Controller.h"
-#include "View/ToggleButton.h"
+#include "View/GroupItem.h"
+#include "Hue/Group.h"
+#include <vector>
 
 class GroupController: public Controller {
     public:
@@ -11,5 +13,6 @@ class GroupController: public Controller {
         void onFrame(int deltaTime);
         void onRemove();
     protected:
-        ToggleButton* mView;
+        GroupItem* mView;
+        vector<Group>* mGroups;
 };

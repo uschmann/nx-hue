@@ -1,20 +1,20 @@
 #pragma once
 
-#include "View/View.h"
 #include <SDL2/SDL.h>
 
-class ToggleButton : public View
+#include "View/View.h"
+#include "View/ToggleButton.h"
+#include "Hue/Group.h"
+
+class GroupItem : public View
 {
     public:
-        ToggleButton(int x, int y);
+        GroupItem(Group* group,int x, int y);
 
         virtual void onDraw(SDL_Renderer* renderer);
         virtual void onFrame(int deltaTime);
         virtual bool onEvent(SDL_Event* event);
-    
-        void setState(bool state);
-        bool getState();
-
     protected:
-        bool mState;
+        Group* mGroup;
+        ToggleButton* mToggleButton;
 };
