@@ -32,9 +32,9 @@ include $(DEVKITPRO)/libnx/switch_rules
 #---------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
-SOURCES		:=	source source/Hue
+SOURCES		:=	source source/Hue include/Controller
 DATA		:=	data
-INCLUDES	:=	include include/Hue
+INCLUDES	:=	include include/Hue include/Controller
 EXEFS_SRC	:=	exefs_src
 ROMFS	:=	romfs
 APP_AUTHOR := Usch
@@ -54,7 +54,7 @@ CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++11 `sdl2-config --cfla
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
-LIBS	:= `sdl2-config --libs` -lcurl -lSDL2_image -lpng -lz -ljpeg -lSDL2_ttf -lfreetype -lz -lbz2 
+LIBS	:= `sdl2-config --libs` -lSDL2_image -lz -ljpeg -lSDL2_ttf -lfreetype -lpng -lz -lbz2 -lcurl
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
