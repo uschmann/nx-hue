@@ -19,6 +19,7 @@ class App {
         bool init();
         void startController(Controller * controller);
         void run();
+
     protected:
         App();
         static App * INSTANCE; 
@@ -27,7 +28,7 @@ class App {
         Controller * controller;
         int mLastTick;
 
-        SDL_Window* mWindow;
         SDL_Renderer* mRenderer;
+        SDL_Window* mWindow;
         SDL_Surface* mScreen;
 };

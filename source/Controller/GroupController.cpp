@@ -8,7 +8,7 @@ void GroupController::onCreate(App *app) {
 
     mGroups = this->app->hue->getGroups();
     
-    mView = new GroupItem(&mGroups->at(0), 40, 40);
+    mView = new GroupItem(&mGroups->at(0), mNavBar->getWidth() + 40, mActionBar->getHeight() + 40);
 }
 
 bool GroupController::onEvent(SDL_Event * event) {

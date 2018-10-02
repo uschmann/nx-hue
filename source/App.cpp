@@ -68,7 +68,7 @@ bool App::init() {
     return false;
   }
 
-  this->assetManager->load();
+  this->assetManager->load(mRenderer);
 
   printf("Init success\n");
 
@@ -80,13 +80,13 @@ void App::run() {
     SDL_Event event;
     mLastTick = SDL_GetTicks();
 
-    SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+    SDL_SetRenderDrawColor(mRenderer, 0x33, 0x33, 0x33, 0xFF);
     SDL_RenderClear(mRenderer);
     SDL_RenderPresent(mRenderer);
 
     while (this->isRunning)
 	{	
-        SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+        SDL_SetRenderDrawColor(mRenderer, 0x33, 0x33, 0x33, 0xFF);
         int currentTick = SDL_GetTicks();
         int deltaTime = currentTick - mLastTick;
         mLastTick = currentTick;

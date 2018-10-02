@@ -5,5 +5,7 @@ class AssetManager {
         TTF_Font* regularFont;
         TTF_Font* boldFont;
 
-        bool load();
+        SDL_Texture* toggleButton;
+
+        bool load(SDL_Renderer* renderer);
 };

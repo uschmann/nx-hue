@@ -1,20 +1,21 @@
 #include "View/ToggleButton.h"
 #include <stdio.h>
+#include "App.h"
 
 ToggleButton::ToggleButton(int x, int y)
-: View(x, y, 80,  40)
+: View(x, y, 100,  50)
 {
         mState = false;
 }
 
 void ToggleButton::onDraw(SDL_Renderer* renderer)
 {
+        SDL_Rect srcRect = { 0, 0, 100, 50 };
         if(mState) {
-                SDL_SetRenderDrawColor(renderer, 0, 0, 0xFF, 0xFF);
+                srcRect.y = 50;
         }
-        else {
-                SDL_SetRenderDrawColor(renderer, 0xFF, 0, 0xFF, 0xFF);
-        }
+
+        
 
         SDL_Rect rect = {
                 mX,
@@ -22,7 +23,7 @@ void ToggleButton::onDraw(SDL_Renderer* renderer)
                 mWidth,
                 mHeight
         };
-        SDL_RenderFillRect(renderer, &rect);
+        SDL_RenderCopy(renderer, App::getInstance()->assetManager->toggleButton, &srcRect, &rect);
 }
 
 void ToggleButton::onFrame(int deltaTime)
