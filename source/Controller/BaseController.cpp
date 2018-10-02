@@ -15,6 +15,7 @@ void BaseController::onCreate(App * app)
 
 bool BaseController::onEvent(SDL_Event * event)
 {
+    mNavBar->onEvent(event);
     return false;
 }
 
