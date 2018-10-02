@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Controller/Controller.h"
+#include "Controller/BaseController.h"
 #include "View/GroupItem.h"
 #include "Hue/Group.h"
 #include <vector>
 
-class GroupController: public Controller {
+class GroupController: public BaseController {
     public:
         void onCreate(App * app);
         bool onEvent(SDL_Event * event);

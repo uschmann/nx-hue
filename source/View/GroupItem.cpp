@@ -44,6 +44,9 @@ bool GroupItem::onEvent(SDL_Event* event)
             mToggleButton->setState(!mToggleButton->getState());
             App::getInstance()->hue->setGroupOnState(mGroup->id, mToggleButton->getState());
         }
+        else if(this->isTapped(e)) {
+            
+        }
     }
     return false;
 }

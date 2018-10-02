@@ -3,7 +3,7 @@
 #include "Event.h"
 
 void GroupController::onCreate(App *app) {
-    this->app = app;
+    BaseController::onCreate(app);
     
 
     mGroups = this->app->hue->getGroups();
@@ -12,11 +12,14 @@ void GroupController::onCreate(App *app) {
 }
 
 bool GroupController::onEvent(SDL_Event * event) {
+    BaseController::onEvent(event);
     mView->onEvent(event);
     return false;
 }
 
 void GroupController::onDraw(SDL_Renderer* renderer) {
+    BaseController::onDraw(renderer);
+    
     SDL_SetRenderDrawColor(renderer, 0xa0, 0, 0, 0xFF);
     mView->onDraw(renderer);
 }
