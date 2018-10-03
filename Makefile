@@ -38,7 +38,7 @@ INCLUDES	:=	include include/Hue include/Controller include/View
 EXEFS_SRC	:=	exefs_src
 ROMFS	:=	romfs
 APP_AUTHOR := Usch
-APP_TITLE := NxHue
+APP_TITLE := Light|Switch
 
 #---------------------------------------------------------------------------------
 # options for code generation

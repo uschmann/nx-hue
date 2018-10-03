@@ -55,9 +55,6 @@ int View::getHeight()
 
 bool View::isTapped(TapEvent* event)
 {
-    //return event->x >= mX && event->x <= mX + mWidth && 
-    //event->y >= mY && event->y <= mY + mHeight;
-
     return isPointIn(event->x, event->y);
 }
 

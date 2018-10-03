@@ -7,7 +7,7 @@
 #include "Controller/LightDetailController.h"
 
 LightItem::LightItem(Light* light,int x, int y)
-: View(x, y, 700, 100)
+: View(x, y, 700, 150)
 {
     mLight = light;
 
@@ -21,8 +21,12 @@ void LightItem::onDraw(SDL_Renderer* renderer)
 
     // Draw Name
     SDL_Color textColor = { 0xFF, 0xFF, 0xFF };
-    TTF_Font* font =  App::getInstance()->assetManager->regularFont;
-    Util_DrawText(renderer, mLight->name, font, textColor, mX + 40, mY + (mHeight / 2 - 20));
+    SDL_Color textColor2 = { 0xAA, 0xAA, 0xAA };
+    TTF_Font* boldFont = App::getInstance()->assetManager->boldFont;
+    TTF_Font* regularFont = App::getInstance()->assetManager->regularFont;
+    
+    Util_DrawText(renderer, mLight->name, boldFont, textColor, mX + 40, mY + (mHeight / 2 - 40));
+    Util_DrawText(renderer, mLight->archetype, regularFont, textColor2, mX + 40, mY + (mHeight / 2 + 5));
 
     // Draw Toggle Button
     mToggleButton->onDraw(renderer);

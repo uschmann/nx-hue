@@ -35,5 +35,23 @@ bool AssetManager::load(SDL_Renderer* renderer)
         return false;
     }
 
+    pallette = IMG_LoadTexture(renderer ,"romfs:/pallete.png");
+    if (!pallette) {
+        printf("Could not load romfs:/pallete.png\n");
+        return false;
+    }
+
+    list = IMG_LoadTexture(renderer ,"romfs:/list.png");
+    if (!list) {
+        printf("Could not load romfs:/list.png\n");
+        return false;
+    }
+
+    shadow = IMG_LoadTexture(renderer ,"romfs:/shadow.png");
+    if (!shadow) {
+        printf("Could not load romfs:/shadow.png\n");
+        return false;
+    }
+
     return true;
 }
