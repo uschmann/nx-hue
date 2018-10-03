@@ -18,6 +18,7 @@ void LightController::onCreate(App * app)
         1280 - mNavBar->getWidth() - 80,
         720 - mActionBar->getHeight() - 40
     );
+    
     for(int i = 0; i < mLights->size(); i++)
     {
         mScrollView->addChild(new LightItem(&mLights->at(i), 0, 0));

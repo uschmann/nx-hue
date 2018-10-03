@@ -17,4 +17,5 @@ class GroupItem : public View
     protected:
         Group* mGroup;
         ToggleButton* mToggleButton;
+        void onLayout();
 };

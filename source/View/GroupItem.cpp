@@ -44,3 +44,9 @@ bool GroupItem::onEvent(SDL_Event* event)
     }
     return false;
 }
+
+void GroupItem::onLayout()
+{
+    mToggleButton->setX(mX + mWidth - 100 - 40);
+    mToggleButton->setY(mY + mHeight / 2 - 20);
+}

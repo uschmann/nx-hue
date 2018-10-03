@@ -2,6 +2,7 @@
 
 #include "Controller/BaseController.h"
 #include "View/GroupItem.h"
+#include "View/ScrollView.h"
 #include "Hue/Group.h"
 #include <vector>
 
@@ -13,6 +14,6 @@ class GroupController: public BaseController {
         void onFrame(int deltaTime);
         void onRemove();
     protected:
-        GroupItem* mView;
+        ScrollView* mScrollView;
         vector<Group>* mGroups;
 };
