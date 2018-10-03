@@ -43,3 +43,9 @@ bool LightItem::onEvent(SDL_Event* event)
     }
     return false;
 }
+
+void LightItem::onLayout()
+{
+    mToggleButton->setX(mX + mWidth - 100 - 40);
+    mToggleButton->setY(mY + mHeight / 2 - 20);
+}

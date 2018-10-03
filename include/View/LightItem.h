@@ -17,4 +17,5 @@ class LightItem : public View
     protected:
         Light* mLight;
         ToggleButton* mToggleButton;
+        void onLayout();
 };

@@ -18,6 +18,7 @@ class View
         int getHeight();
 
         bool isTapped(TapEvent* event);
+        bool isPointIn(int x, int y);
 
         virtual void onDraw(SDL_Renderer* renderer);
         virtual void onFrame(int deltaTime);
@@ -28,4 +29,6 @@ class View
         int mY;
         int mWidth;
         int mHeight;
+
+        virtual void onLayout();
 };

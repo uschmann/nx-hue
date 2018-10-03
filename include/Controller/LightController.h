@@ -4,6 +4,7 @@
 #include "Hue/Light.h"
 #include <vector>
 #include "View/LightItem.h"
+#include "View/ScrollView.h"
 
 class LightController: public BaseController {
     public:
@@ -12,5 +13,5 @@ class LightController: public BaseController {
         void onDraw(SDL_Renderer* renderer);
     protected:
         vector<Light>* mLights;
-        vector<LightItem*>* mLightItems;
+        ScrollView* mScrollView;
 };

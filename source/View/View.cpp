@@ -12,21 +12,25 @@ View::View(int x, int y, int width, int height)
 void View::setX(int x) 
 {
     mX = x;
+    onLayout();
 }
 
 void View::setY(int y) 
 {
     mY = y;
+    onLayout();
 }
 
 void View::setWidth(int width)
 {
     mWidth = width;
+    onLayout();
 }
 
 void View::setHeight(int height)
 {
     mHeight = height;
+    onLayout();
 }
 
 int View::getX()
@@ -51,8 +55,16 @@ int View::getHeight()
 
 bool View::isTapped(TapEvent* event)
 {
-    return event->x >= mX && event->x <= mX + mWidth && 
-    event->y >= mY && event->y <= mY + mHeight;
+    //return event->x >= mX && event->x <= mX + mWidth && 
+    //event->y >= mY && event->y <= mY + mHeight;
+
+    return isPointIn(event->x, event->y);
+}
+
+bool View::isPointIn(int x, int y)
+{
+    return x >= mX && x <= mX + mWidth && 
+    y >= mY && y <= mY + mHeight;
 }
 
 void View::onDraw(SDL_Renderer* renderer) 
@@ -68,4 +80,9 @@ void View::onFrame(int deltaTime)
 bool View::onEvent(SDL_Event* event)
 {
     return false;
+}
+
+void View::onLayout()
+{
+
 }
