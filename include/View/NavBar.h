@@ -12,7 +12,6 @@ class NavBar : public View
         virtual void onDraw(SDL_Renderer* renderer);
         virtual bool onEvent(SDL_Event* event);
 
-    protected:
         NavBarButton* mGroupsButton;
         NavBarButton* mLightsButton;
         NavBarButton* mSettingsButton;

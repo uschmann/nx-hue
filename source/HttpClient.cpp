@@ -24,6 +24,9 @@ HttpResponse * HttpClient::get(const char *url) {
     CURLcode res;
     std::string readBuffer;
     
+    CURL* handle = curl_easy_init();
+    curl_easy_setopt(handle, CURLOPT_SSL_VERIFYPEER, 0L);
+    curl_easy_setopt(handle, CURLOPT_SSL_VERIFYHOST, 0L);
     curl_easy_setopt(handle, CURLOPT_URL, url);
     curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, HttpClient::invoke_write_data);
     curl_easy_setopt(handle, CURLOPT_WRITEDATA, &readBuffer);
@@ -37,6 +40,8 @@ HttpResponse * HttpClient::post(const char *url, const char* data) {
     struct curl_slist *headers = NULL;
     std::string readBuffer;
     
+    curl_easy_setopt(handle, CURLOPT_SSL_VERIFYPEER, 0L);
+    curl_easy_setopt(handle, CURLOPT_SSL_VERIFYHOST, 0L);
     curl_easy_setopt(handle, CURLOPT_URL, url);
     curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, HttpClient::invoke_write_data);
     curl_easy_setopt(handle, CURLOPT_WRITEDATA, &readBuffer);

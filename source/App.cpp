@@ -149,10 +149,9 @@ void App::run() {
 void App::startController(Controller * controller) {
     if(this->controller != NULL) {
         this->controller->onRemove();
-        delete this->controller;
+        //delete this->controller;
     }
     
     this->controller = controller;
     this->controller->onCreate(this);
-    this->controller->onDraw(mRenderer);
 }

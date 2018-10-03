@@ -4,7 +4,10 @@
 
 void GroupController::onCreate(App *app) {
     BaseController::onCreate(app);
-    
+
+    mNavBar->mGroupsButton->setActive(true);
+    mNavBar->mLightsButton->setActive(false);    
+    mNavBar->mSettingsButton->setActive(false);
 
     mGroups = this->app->hue->getGroups();
     
