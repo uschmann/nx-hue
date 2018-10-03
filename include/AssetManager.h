@@ -6,6 +6,8 @@ class AssetManager {
         TTF_Font* boldFont;
 
         SDL_Texture* toggleButton;
+        SDL_Texture* colorWheel;
+        SDL_Surface* colorWheelSurface;
 
         bool load(SDL_Renderer* renderer);
 };

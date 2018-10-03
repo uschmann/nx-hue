@@ -3,6 +3,7 @@
 #include "Event.h"
 #include "App.h"
 #include "Utils.h"
+#include "Controller/GroupDetailController.h"
 
 GroupItem::GroupItem(Group* group, int x, int y)
 : View(x, y, 700, 100)
@@ -10,6 +11,7 @@ GroupItem::GroupItem(Group* group, int x, int y)
     mGroup = group;
 
     mToggleButton = new ToggleButton(mX + mWidth - 100 - 40, mY + mHeight / 2 - 20);
+    mToggleButton->setState(mGroup->anyOn);
 }
 
 void GroupItem::onDraw(SDL_Renderer* renderer) 
@@ -39,7 +41,7 @@ bool GroupItem::onEvent(SDL_Event* event)
             App::getInstance()->hue->setGroupOnState(mGroup->id, mToggleButton->getState());
         }
         else if(this->isTapped(e)) {
-            
+            App::getInstance()->startController(new GroupDetailController(mGroup->id));
         }
     }
     return false;

@@ -23,6 +23,7 @@ class Hue {
         bool setBrightness(char * id, int brightness);
 
         vector<Group> * getGroups();
+        Group* getGroupById(char * id);
         bool setGroupOnState(char * id, bool state);
         bool setGroupColorRgb(char *id, double red, double green, double blue);
         bool setGroupColorXy(char *id, double x, double y);

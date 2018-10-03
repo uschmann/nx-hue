@@ -5,6 +5,7 @@
 #include "cJson.h"
 #include <stdio.h>
 #include <math.h>
+#include <cstring>
 
 Hue::Hue() {
     mHttpClient = new HttpClient();
@@ -158,6 +159,29 @@ vector<Group> * Hue::getGroups() {
     delete response;
 
     return groups;
+}
+
+Group* Hue::getGroupById(char * id)
+{
+    char url[100];
+    sprintf(url, "http://%s/api/%s/groups/%s", this->ip, this->user, id);
+    HttpResponse * response = mHttpClient->get(url);
+
+    cJSON * json = cJSON_Parse(response->data.c_str());
+    Group* group = Group::fromJson(json);
+    vector<Light>* lights = getLights();
+
+    for(int i = 0; i < group->lightIds->size(); i++) {
+        char* id = group->lightIds->at(i);
+
+        for(int j = 0; j < lights->size(); j ++) {
+            if(strcmp(lights->at(j).id, id) == 0) {
+                group->lights->push_back(&lights->at(j));
+            }
+        }
+    }
+
+    return group;
 }
 
 bool Hue::setGroupOnState(char * id, bool state) {

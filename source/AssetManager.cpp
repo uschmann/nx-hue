@@ -24,5 +24,16 @@ bool AssetManager::load(SDL_Renderer* renderer)
         return false;
     }
 
+    colorWheel = IMG_LoadTexture(renderer ,"romfs:/colorwheel.png");
+    if (!colorWheel) {
+        printf("Could not load romfs:/colorwheel.png\n");
+        return false;
+    }
+    colorWheelSurface = IMG_Load("romfs:/colorwheel.png");
+    if(!colorWheelSurface) {
+        printf("Could not load romfs:/colorwheel.png to surface\n");
+        return false;
+    }
+
     return true;
 }

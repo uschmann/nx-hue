@@ -3,6 +3,8 @@
 #include "Utils.h"
 #include "App.h"
 #include "View/LightItem.h"
+#include "App.h"
+#include "Controller/LightDetailController.h"
 
 LightItem::LightItem(Light* light,int x, int y)
 : View(x, y, 700, 100)
@@ -39,6 +41,9 @@ bool LightItem::onEvent(SDL_Event* event)
             mLight->state->on = !mLight->state->on;
             mToggleButton->setState(mLight->state->on);
             App::getInstance()->hue->setOnState(mLight->id, mLight->state->on);
+        }
+        else if(isTapped(e)) {
+            App::getInstance()->startController(new LightDetailController(mLight));
         }
     }
     return false;
