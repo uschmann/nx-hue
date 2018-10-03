@@ -3,6 +3,7 @@
 
 #include "Controller/GroupController.h"
 #include "Controller/LightController.h"
+#include "Controller/SettingsController.h"
 
 NavBar::NavBar(int x, int y)
 : View(x, y, 500, 720 -90)
@@ -38,7 +39,7 @@ bool NavBar::onEvent(SDL_Event* event)
         }
 
         if(mSettingsButton->isTapped(e)) {
-            printf("Settings\n");
+            App::getInstance()->startController(new SettingsController());
         }
     }
 
