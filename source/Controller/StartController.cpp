@@ -17,7 +17,24 @@ void StartController::onCreate(App * app)
     hue->discoverByMdns();
     if(!hue->hasIp()) {
         printf("No IP\n");
-        mState = STATE_NO_IP;
+        char *ip = FileSystem::readTextFile("hueip.txt");
+        if(ip != NULL) {
+            printf("IP from FS: %s\n", ip);
+            app->hue->setIp(ip);
+            
+            char * user = FileSystem::readTextFile("lightswitch.txt");
+            if(user == NULL) {
+                mState = StartController::STATE_NO_USER;
+            }
+            else {
+                mState = StartController::STATE_REGISTER_COMPLETE;
+                hue->setUser(user);
+                app->startController(new GroupController());
+            }
+        }
+        else {
+            mState = STATE_NO_IP;
+        }
     }
     else {
         char * user = FileSystem::readTextFile("lightswitch.txt");
