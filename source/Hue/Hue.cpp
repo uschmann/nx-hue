@@ -9,6 +9,7 @@
 
 Hue::Hue() {
     mHttpClient = new HttpClient();
+    mMdnsHelper = new MdnsHelper();
     ip = NULL;
     user = NULL;
 }
@@ -41,6 +42,10 @@ char * Hue::discoverByNupnp() {
     cJSON_free(json);
 
     return this->ip;
+}
+
+void Hue::discoverByMdns() {
+    this->setIp(mMdnsHelper->discover());
 }
 
 char * Hue::registerUser() {

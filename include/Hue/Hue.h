@@ -4,6 +4,7 @@
 #include "HttpClient.h"
 #include "Light.h"
 #include "Group.h"
+#include "MdnsHelper.h"
 
 using namespace std;
 
@@ -11,6 +12,7 @@ class Hue {
     public:
         Hue();
         char * discoverByNupnp();
+        void discoverByMdns();
         void setUser(char * user);
         void setIp(char * ip);
         char* getIp();
@@ -32,4 +34,5 @@ class Hue {
         HttpClient *mHttpClient;
         char * ip;
         char * user;
+        MdnsHelper* mMdnsHelper;
 };
