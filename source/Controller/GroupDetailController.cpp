@@ -48,13 +48,6 @@ void GroupDetailController::onCreate(App * app)
 bool GroupDetailController::onEvent(SDL_Event * event)
 {
     BaseController::onEvent(event);
-    if(mState == STATE_LIST) {
-        mLightsScrollView->onEvent(event);
-    }
-    else {
-        mSlider->onEvent(event);
-        mColorWheel->onEvent(event);
-    }
 
     if(event->type == SDL_USEREVENT) {
         TapEvent* e = (TapEvent*)event->user.data1;
@@ -62,12 +55,22 @@ bool GroupDetailController::onEvent(SDL_Event * event)
             mState = STATE_LIST;
             mLightButton->setActive(true);
             mSettingsButton->setActive(false);
+            return true;
         }
         else if(mSettingsButton->isTapped(e)) {
             mState = STATE_SETTINGS;
             mLightButton->setActive(false);
             mSettingsButton->setActive(true);
+            return true;
         }
+    }
+
+    if(mState == STATE_LIST) {
+        mLightsScrollView->onEvent(event);
+    }
+    else {
+        mSlider->onEvent(event);
+        mColorWheel->onEvent(event);
     }
     
     return false;

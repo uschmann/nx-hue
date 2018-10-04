@@ -17,6 +17,8 @@ class Hue {
         void setIp(char * ip);
         char* getIp();
         char * registerUser();
+        bool hasIp();
+        bool hasUser();
 
         vector<Light> * getLights();
         bool setOnState(char * id, bool state);

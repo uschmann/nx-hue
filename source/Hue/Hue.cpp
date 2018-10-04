@@ -275,3 +275,12 @@ bool Hue::setGroupBrightness(char * id, int brightness) {
     return success;
 }
 
+bool Hue::hasIp()
+{
+    return this->ip != NULL;
+}
+
+bool Hue::hasUser()
+{
+    this->user != NULL;
+}

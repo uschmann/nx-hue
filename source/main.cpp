@@ -1,14 +1,12 @@
 #include "App.h"
 
-#include "Controller/GroupController.h"
+#include "Controller/StartController.h"
 
 int main(int argc, char **argv)
 {
 	App* app = App::getInstance();
 	app->init();
-	
-	GroupController * controller = new GroupController();
-	app->startController(controller);
+	app->startController(new StartController());
 	app->run();	
 
   return 0;

@@ -67,9 +67,6 @@ bool App::init() {
 
   this->assetManager->load(mRenderer);
 
-  this->hue->setUser("jOUGx3IWt1qns7ck5p93fsJM0Ao5qiwYpW1AgwVn");
-  this->hue->discoverByMdns();
-
   printf("Init success\n");
 
   return true;
