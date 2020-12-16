@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Hue/state.h"
+#include "State.h"
 #include <cJson.h>
 
 class Light {

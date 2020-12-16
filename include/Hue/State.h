@@ -1,6 +1,6 @@
 #pragma once
 
-#include <cJSON.h>
+#include "../cJson.h"
 
 class State {
     public:
